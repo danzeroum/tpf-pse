@@ -1,0 +1,386 @@
+{
+ "schema": "laudo-pse-1.0",
+ "artifact": {
+  "suite": "pse-suite",
+  "suite_version": "0.20.0",
+  "schema_version": "laudo-pse-1.0",
+  "catalog_hash": "4682a4ae1115e577e95e2ddbd666bfd041efb2fca4b3d77e7683e2055571a0ac",
+  "repo_commit": "9d4b774cc6763b234372999a1d1c4baf248e3080",
+  "config_fingerprint": null,
+  "timestamp_utc": "2026-08-31T21:48:06Z",
+  "modo": "pse_inventory",
+  "autorizacao": null
+ },
+ "veredito": "violacao",
+ "exit_code": 11,
+ "packs": [
+  "ethics",
+  "privacy",
+  "security"
+ ],
+ "dominios": [
+  "frontend",
+  "api",
+  "backend",
+  "data",
+  "ai"
+ ],
+ "packs_desabilitados": [],
+ "resumo": {
+  "total_findings": 4,
+  "por_severidade": {
+   "ALTO": 4
+  }
+ },
+ "cobertura": {
+  "catalogo_total": 58,
+  "implementados_nos_packs": 58,
+  "executados": 18,
+  "por_dominio": {
+   "frontend": 11,
+   "api": 16,
+   "backend": 16,
+   "data": 15,
+   "ai": 15
+  }
+ },
+ "checks_executados": [
+  "P-01",
+  "P-03",
+  "P-04",
+  "P-06",
+  "P-07",
+  "P-09",
+  "P-13",
+  "P-14",
+  "P-17",
+  "P-20",
+  "S-04",
+  "S-06",
+  "S-09",
+  "S-10",
+  "S-11",
+  "S-13",
+  "S-14",
+  "S-15"
+ ],
+ "checks_pulados": [
+  {
+   "id": "E-00",
+   "motivo": "pack de etica fora de escopo: nenhum indicio de decisao automatizada sobre pessoas no codigo (sem dependencia de ML, rotina de decisao ou chamada de inferencia) e nada foi declarado em decision_making"
+  },
+  {
+   "id": "E-01",
+   "motivo": "pack 'ethics' fora de escopo por E-00: pack de etica fora de escopo: nenhum indicio de decisao automatizada sobre pessoas no codigo (sem dependencia de ML, rotina de decisao ou chamada de inferencia) e nada foi declarado em decision_making"
+  },
+  {
+   "id": "E-02",
+   "motivo": "pack 'ethics' fora de escopo por E-00: pack de etica fora de escopo: nenhum indicio de decisao automatizada sobre pessoas no codigo (sem dependencia de ML, rotina de decisao ou chamada de inferencia) e nada foi declarado em decision_making"
+  },
+  {
+   "id": "E-03",
+   "motivo": "pack 'ethics' fora de escopo por E-00: pack de etica fora de escopo: nenhum indicio de decisao automatizada sobre pessoas no codigo (sem dependencia de ML, rotina de decisao ou chamada de inferencia) e nada foi declarado em decision_making"
+  },
+  {
+   "id": "E-04",
+   "motivo": "pack 'ethics' fora de escopo por E-00: pack de etica fora de escopo: nenhum indicio de decisao automatizada sobre pessoas no codigo (sem dependencia de ML, rotina de decisao ou chamada de inferencia) e nada foi declarado em decision_making"
+  },
+  {
+   "id": "E-05",
+   "motivo": "pack 'ethics' fora de escopo por E-00: pack de etica fora de escopo: nenhum indicio de decisao automatizada sobre pessoas no codigo (sem dependencia de ML, rotina de decisao ou chamada de inferencia) e nada foi declarado em decision_making"
+  },
+  {
+   "id": "E-06",
+   "motivo": "pack 'ethics' fora de escopo por E-00: pack de etica fora de escopo: nenhum indicio de decisao automatizada sobre pessoas no codigo (sem dependencia de ML, rotina de decisao ou chamada de inferencia) e nada foi declarado em decision_making"
+  },
+  {
+   "id": "E-07",
+   "motivo": "pack 'ethics' fora de escopo por E-00: pack de etica fora de escopo: nenhum indicio de decisao automatizada sobre pessoas no codigo (sem dependencia de ML, rotina de decisao ou chamada de inferencia) e nada foi declarado em decision_making"
+  },
+  {
+   "id": "E-08",
+   "motivo": "pack 'ethics' fora de escopo por E-00: pack de etica fora de escopo: nenhum indicio de decisao automatizada sobre pessoas no codigo (sem dependencia de ML, rotina de decisao ou chamada de inferencia) e nada foi declarado em decision_making"
+  },
+  {
+   "id": "E-09",
+   "motivo": "pack 'ethics' fora de escopo por E-00: pack de etica fora de escopo: nenhum indicio de decisao automatizada sobre pessoas no codigo (sem dependencia de ML, rotina de decisao ou chamada de inferencia) e nada foi declarado em decision_making"
+  },
+  {
+   "id": "E-10",
+   "motivo": "pack 'ethics' fora de escopo por E-00: pack de etica fora de escopo: nenhum indicio de decisao automatizada sobre pessoas no codigo (sem dependencia de ML, rotina de decisao ou chamada de inferencia) e nada foi declarado em decision_making"
+  },
+  {
+   "id": "E-11",
+   "motivo": "pack 'ethics' fora de escopo por E-00: pack de etica fora de escopo: nenhum indicio de decisao automatizada sobre pessoas no codigo (sem dependencia de ML, rotina de decisao ou chamada de inferencia) e nada foi declarado em decision_making"
+  },
+  {
+   "id": "E-12",
+   "motivo": "pack 'ethics' fora de escopo por E-00: pack de etica fora de escopo: nenhum indicio de decisao automatizada sobre pessoas no codigo (sem dependencia de ML, rotina de decisao ou chamada de inferencia) e nada foi declarado em decision_making"
+  },
+  {
+   "id": "E-13",
+   "motivo": "pack 'ethics' fora de escopo por E-00: pack de etica fora de escopo: nenhum indicio de decisao automatizada sobre pessoas no codigo (sem dependencia de ML, rotina de decisao ou chamada de inferencia) e nada foi declarado em decision_making"
+  },
+  {
+   "id": "P-02",
+   "motivo": "catalogo de dados ausente — cobrado por P-04"
+  },
+  {
+   "id": "P-08",
+   "motivo": "catalogo de dados ausente — cobrado por P-04"
+  },
+  {
+   "id": "P-15",
+   "motivo": "nenhuma chamada de treino no codigo — nao ha feature a confrontar com o catalogo"
+  },
+  {
+   "id": "P-16",
+   "motivo": "nenhuma chamada de treino no codigo — nao ha dataset de treino a inventariar"
+  },
+  {
+   "id": "P-18",
+   "motivo": "catalogo de dados ausente — cobrado por P-04; sem inventario nao ha campo sensivel a confrontar"
+  },
+  {
+   "id": "P-19",
+   "motivo": "nenhuma producao de evento em barramento append-only no codigo — nao ha registro imutavel a confrontar com o direito de eliminacao"
+  },
+  {
+   "id": "S-05",
+   "motivo": "manifesto de terceiros ausente — cobrado por S-04"
+  },
+  {
+   "id": "S-08",
+   "motivo": "manifesto de terceiros ausente — cobrado por S-04"
+  },
+  {
+   "id": "S-12",
+   "motivo": "nenhum arquivo se declara contrato de API (sem chave `openapi` nem `swagger` de topo) — nao ha contrato a confrontar"
+  },
+  {
+   "id": "S-16",
+   "motivo": "nenhuma politica de residencia de dados declarada (`data_residency` na config ou no manifesto) — sem promessa nao ha o que confrontar, e supor uma jurisdicao seria a suite decidindo pelo consumidor"
+  },
+  {
+   "id": "S-22",
+   "motivo": "nenhuma finalidade entra no servidor: nenhum ponto do codigo le `X-Purpose` nem chave equivalente da requisicao. Sem lugar onde a finalidade chegue nao ha lugar onde a base legal possa ser exigida — e declarar finalidades sem le-las e defeito de propagacao, que e de S-07"
+  }
+ ],
+ "checks_indeterminados": [],
+ "checks_previstos": [],
+ "checks_nao_habilitados": [
+  {
+   "id": "P-05",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "P-10",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "P-11",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "P-22",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "P-23",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "P-24",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "S-01",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "S-02",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "S-03",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "S-07",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "S-17",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "S-18",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "S-19",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "S-20",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "S-21",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  }
+ ],
+ "packs_fora_de_escopo": [
+  {
+   "pack": "ethics",
+   "motivo": "pack de etica fora de escopo: nenhum indicio de decisao automatizada sobre pessoas no codigo (sem dependencia de ML, rotina de decisao ou chamada de inferencia) e nada foi declarado em decision_making"
+  }
+ ],
+ "alcance": {
+  "lidos": [
+   {
+    "linguagem": "Python",
+    "arquivos": 31,
+    "ferramenta": "ast (stdlib)"
+   },
+   {
+    "linguagem": "YAML",
+    "arquivos": 3,
+    "ferramenta": "PyYAML"
+   },
+   {
+    "linguagem": "JSON",
+    "arquivos": 3,
+    "ferramenta": "PyYAML"
+   },
+   {
+    "linguagem": "SQL",
+    "arquivos": 1,
+    "ferramenta": "regex sobre codigo efetivo"
+   }
+  ],
+  "alcance_parcial": [],
+  "fora_de_alcance": [],
+  "arquivos_fora_de_alcance": 0,
+  "arquivos_em_alcance_parcial": 0,
+  "nota": "Todo arquivo de codigo ou declaracao do alvo esta em linguagem que a suite le, ou em linguagem de alcance parcial declarado."
+ },
+ "correlacoes": [
+  {
+   "par": [
+    "S-04",
+    "S-18"
+   ],
+   "falha": "terceiro tratando dado do titular sem estar declarado",
+   "cenario": "so_na_camada_estatica",
+   "leitura": "terceiro tratando dado do titular sem estar declarado: presente no codigo e nao observado no alvo — o manifesto ou o codigo citam o terceiro e a pagina observada nao o contactou: rota nao visitada, feature desligada, ou integracao ja removida do runtime. Nao e falso positivo do estatico: e defeito que a observacao nao exercitou.",
+   "achados_estaticos": [
+    {
+     "check_id": "S-04",
+     "arquivo": "src/response_schemas.py",
+     "linha": 141
+    },
+    {
+     "check_id": "S-04",
+     "arquivo": "docs/examples/get_token_example.py",
+     "linha": 4
+    }
+   ],
+   "achados_dinamicos": []
+  }
+ ],
+ "relatorios": {
+  "cobertura_catalogo": {
+   "presente": false
+  },
+  "cobertura_parcial": {
+   "P-07": "metade runtime nao executada: Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado.",
+   "P-09": "metade runtime nao executada: Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  }
+ },
+ "findings": [
+  {
+   "check_id": "P-04",
+   "pack": "privacy",
+   "severidade": "ALTO",
+   "titulo": "Catalogo de dados ausente",
+   "descricao": "Sem inventario (campo -> classe, dono, finalidade, base legal, retencao) nenhum outro controle de privacidade opera.",
+   "recomendacao": "Criar tests/qa/catalog.yaml conforme pse/schemas/catalog-1.0.json.",
+   "base_legal": "LGPD Art. 37",
+   "arquivo": "tests/qa/catalog.yaml",
+   "linha": 1,
+   "snippet": null,
+   "trace": null,
+   "domain": [
+    "data"
+   ]
+  },
+  {
+   "check_id": "P-07",
+   "pack": "privacy",
+   "severidade": "ALTO",
+   "titulo": "Modelo de consentimento ausente",
+   "descricao": "Nenhum modelo em tests/qa/consent-model.yaml. Sem finalidades declaradas nao ha como saber a que o titular consentiu — nem para registrar, nem para revogar.",
+   "recomendacao": "Criar tests/qa/consent-model.yaml conforme pse/schemas/consent-model-1.0.json.",
+   "base_legal": "LGPD Art. 7o-8o",
+   "arquivo": "tests/qa/consent-model.yaml",
+   "linha": 1,
+   "snippet": null,
+   "trace": null,
+   "domain": [
+    "api",
+    "data"
+   ]
+  },
+  {
+   "check_id": "S-04",
+   "pack": "security",
+   "severidade": "ALTO",
+   "titulo": "Host externo nao registrado no manifesto: [REDACTED-HOST]",
+   "descricao": "Endpoint de terceiro usado no codigo sem entrada em .privacy/third-party-manifest.yml.",
+   "recomendacao": "Registrar a integracao com DPA, residencia de dados e base de transferencia — ou remover a chamada.",
+   "base_legal": "LGPD Art. 39",
+   "arquivo": "src/response_schemas.py",
+   "linha": 141,
+   "snippet": null,
+   "trace": null,
+   "domain": [
+    "backend"
+   ]
+  },
+  {
+   "check_id": "S-04",
+   "pack": "security",
+   "severidade": "ALTO",
+   "titulo": "Host externo nao registrado no manifesto: [REDACTED-HOST]",
+   "descricao": "Endpoint de terceiro usado no codigo sem entrada em .privacy/third-party-manifest.yml.",
+   "recomendacao": "Registrar a integracao com DPA, residencia de dados e base de transferencia — ou remover a chamada.",
+   "base_legal": "LGPD Art. 39",
+   "arquivo": "docs/examples/get_token_example.py",
+   "linha": 4,
+   "snippet": null,
+   "trace": null,
+   "domain": [
+    "backend"
+   ]
+  }
+ ],
+ "duracao_s": 2.44,
+ "sanitizacao": {
+  "data_utc": "2026-08-31T21:58:56Z",
+  "metodo": "redacao assistida por script (scripts/12_sanitizar_alvo_a.py); mesmas regras do protocolo TPF da rodada B: tipo de indício + check + arquivo:linha, sem literal",
+  "regras": [
+   "hosts externos apontados por S-04 mascarados como [REDACTED-HOST] (inclui titulos de findings)",
+   "URLs com esquema mascaradas como https://[REDACTED-HOST]",
+   "snippet de credencial (P-06) seria substituido integralmente (regra preventiva; sem P-06 neste alvo)",
+   "varredura global por literais proibidos aplicada ao JSON inteiro"
+  ],
+  "redacoes": [
+   {
+    "escopo": "varredura-estrutural",
+    "acao": "2 campo(s) com host/valor mascarado em todo o laudo"
+   }
+  ],
+  "nota": "o laudo BRUTO permanece em evidence/raw/ e nao deve ser divulgado"
+ }
+}

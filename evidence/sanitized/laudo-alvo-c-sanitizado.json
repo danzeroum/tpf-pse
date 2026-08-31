@@ -1,0 +1,746 @@
+{
+ "schema": "laudo-pse-1.0",
+ "artifact": {
+  "suite": "pse-suite",
+  "suite_version": "0.20.0",
+  "schema_version": "laudo-pse-1.0",
+  "catalog_hash": "4682a4ae1115e577e95e2ddbd666bfd041efb2fca4b3d77e7683e2055571a0ac",
+  "repo_commit": "d6bb97ddff5d752d8b05aa099a168127c7253562",
+  "config_fingerprint": null,
+  "timestamp_utc": "2026-08-31T22:31:17Z",
+  "modo": "pse_inventory",
+  "autorizacao": null
+ },
+ "veredito": "indeterminado",
+ "exit_code": 20,
+ "packs": [
+  "ethics",
+  "privacy",
+  "security"
+ ],
+ "dominios": [
+  "frontend",
+  "api",
+  "backend",
+  "data",
+  "ai"
+ ],
+ "packs_desabilitados": [],
+ "resumo": {
+  "total_findings": 21,
+  "por_severidade": {
+   "ALTO": 18,
+   "MEDIO": 3
+  }
+ },
+ "cobertura": {
+  "catalogo_total": 58,
+  "implementados_nos_packs": 58,
+  "executados": 25,
+  "por_dominio": {
+   "frontend": 11,
+   "api": 16,
+   "backend": 16,
+   "data": 15,
+   "ai": 15
+  }
+ },
+ "checks_executados": [
+  "E-00",
+  "E-04",
+  "E-05",
+  "E-07",
+  "E-10",
+  "E-11",
+  "P-01",
+  "P-03",
+  "P-04",
+  "P-06",
+  "P-07",
+  "P-09",
+  "P-13",
+  "P-14",
+  "P-16",
+  "P-17",
+  "P-20",
+  "S-04",
+  "S-06",
+  "S-09",
+  "S-10",
+  "S-11",
+  "S-13",
+  "S-14",
+  "S-15"
+ ],
+ "checks_pulados": [
+  {
+   "id": "E-08",
+   "motivo": "nenhum tratamento de dado pessoal a rastrear: o catalogo nao declara campo personal/sensitive (catalogo em si e cobrado por P-04)"
+  },
+  {
+   "id": "E-12",
+   "motivo": "nenhuma exportacao de embedding/hash derivado no codigo"
+  },
+  {
+   "id": "E-13",
+   "motivo": "manifesto de terceiros ausente — sem ele todo host de dependencia seria achado, e ruido nao e evidencia (a ausencia do manifesto e cobrada por S-04)"
+  },
+  {
+   "id": "P-02",
+   "motivo": "catalogo de dados ausente — cobrado por P-04"
+  },
+  {
+   "id": "P-08",
+   "motivo": "catalogo de dados ausente — cobrado por P-04"
+  },
+  {
+   "id": "P-18",
+   "motivo": "catalogo de dados ausente — cobrado por P-04; sem inventario nao ha campo sensivel a confrontar"
+  },
+  {
+   "id": "P-19",
+   "motivo": "nenhuma producao de evento em barramento append-only no codigo — nao ha registro imutavel a confrontar com o direito de eliminacao"
+  },
+  {
+   "id": "S-05",
+   "motivo": "manifesto de terceiros ausente — cobrado por S-04"
+  },
+  {
+   "id": "S-08",
+   "motivo": "manifesto de terceiros ausente — cobrado por S-04"
+  },
+  {
+   "id": "S-12",
+   "motivo": "nenhum arquivo se declara contrato de API (sem chave `openapi` nem `swagger` de topo) — nao ha contrato a confrontar"
+  },
+  {
+   "id": "S-16",
+   "motivo": "nenhuma politica de residencia de dados declarada (`data_residency` na config ou no manifesto) — sem promessa nao ha o que confrontar, e supor uma jurisdicao seria a suite decidindo pelo consumidor"
+  },
+  {
+   "id": "S-22",
+   "motivo": "nenhuma finalidade entra no servidor: nenhum ponto do codigo le `X-Purpose` nem chave equivalente da requisicao. Sem lugar onde a finalidade chegue nao ha lugar onde a base legal possa ser exigida — e declarar finalidades sem le-las e defeito de propagacao, que e de S-07"
+  }
+ ],
+ "checks_indeterminados": [
+  {
+   "id": "E-06",
+   "motivo": "dataset de avaliacao ausente: nenhum `fairness_dataset` declarado em pse-config.yaml. Fairness sem dados representativos e teatro, e a suite nao sai procurando qual arquivo seria o dataset"
+  },
+  {
+   "id": "P-15",
+   "motivo": "ha treino de modelo, mas nao existe catalogo de dados para dizer se os campos usados como feature declaram finalidade de treino — sem inventario a pergunta nao e respondivel (catalogo cobrado por P-04)"
+  }
+ ],
+ "checks_previstos": [],
+ "checks_nao_habilitados": [
+  {
+   "id": "E-01",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "E-02",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "E-03",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "E-09",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "P-05",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "P-10",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "P-11",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "P-22",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "P-23",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "P-24",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "S-01",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "S-02",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "S-03",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "S-07",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "S-17",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "S-18",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "S-19",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "S-20",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  },
+  {
+   "id": "S-21",
+   "motivo": "Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  }
+ ],
+ "packs_fora_de_escopo": [],
+ "alcance": {
+  "lidos": [
+   {
+    "linguagem": "Python",
+    "arquivos": 311,
+    "ferramenta": "ast (stdlib)"
+   },
+   {
+    "linguagem": "YAML",
+    "arquivos": 113,
+    "ferramenta": "PyYAML"
+   },
+   {
+    "linguagem": "JSON",
+    "arquivos": 20,
+    "ferramenta": "PyYAML"
+   },
+   {
+    "linguagem": "shell",
+    "arquivos": 4,
+    "ferramenta": "linha a linha sobre codigo efetivo"
+   },
+   {
+    "linguagem": "JavaScript",
+    "arquivos": 1,
+    "ferramenta": "tree-sitter"
+   }
+  ],
+  "alcance_parcial": [],
+  "fora_de_alcance": [
+   {
+    "linguagem": ".jsonl (linguagem nao reconhecida)",
+    "arquivos": 5
+   },
+   {
+    "linguagem": ".mp4 (linguagem nao reconhecida)",
+    "arquivos": 3
+   },
+   {
+    "linguagem": ".mp3 (linguagem nao reconhecida)",
+    "arquivos": 2
+   },
+   {
+    "linguagem": ".local (linguagem nao reconhecida)",
+    "arquivos": 1
+   },
+   {
+    "linguagem": ".cff (linguagem nao reconhecida)",
+    "arquivos": 1
+   },
+   {
+    "linguagem": ".in (linguagem nao reconhecida)",
+    "arquivos": 1
+   },
+   {
+    "linguagem": ".avi (linguagem nao reconhecida)",
+    "arquivos": 1
+   },
+   {
+    "linguagem": ".wav (linguagem nao reconhecida)",
+    "arquivos": 1
+   },
+   {
+    "linguagem": ".flac (linguagem nao reconhecida)",
+    "arquivos": 1
+   },
+   {
+    "linguagem": ".base (linguagem nao reconhecida)",
+    "arquivos": 1
+   },
+   {
+    "linguagem": ".mbridge (linguagem nao reconhecida)",
+    "arquivos": 1
+   },
+   {
+    "linguagem": ".megatron (linguagem nao reconhecida)",
+    "arquivos": 1
+   },
+   {
+    "linguagem": ".bat (linguagem nao reconhecida)",
+    "arquivos": 1
+   },
+   {
+    "linguagem": "TOML",
+    "arquivos": 1
+   }
+  ],
+  "arquivos_fora_de_alcance": 21,
+  "arquivos_em_alcance_parcial": 0,
+  "nota": "AUSENCIA DE ACHADO NAS LINGUAGENS ACIMA NAO E ATESTADO DE CONFORMIDADE: a suite nao tem parser para elas e nao leu nenhum desses arquivos. Este bloco existe porque um laudo silencioso sobre o que nao foi olhado e indistinguivel de um laudo que olhou e nao achou nada."
+ },
+ "correlacoes": [
+  {
+   "par": [
+    "S-04",
+    "S-18"
+   ],
+   "falha": "terceiro tratando dado do titular sem estar declarado",
+   "cenario": "so_na_camada_estatica",
+   "leitura": "terceiro tratando dado do titular sem estar declarado: presente no codigo e nao observado no alvo — o manifesto ou o codigo citam o terceiro e a pagina observada nao o contactou: rota nao visitada, feature desligada, ou integracao ja removida do runtime. Nao e falso positivo do estatico: e defeito que a observacao nao exercitou.",
+   "achados_estaticos": [
+    {
+     "check_id": "S-04",
+     "arquivo": "src/llamafactory/webui/locales.py",
+     "linha": 38
+    },
+    {
+     "check_id": "S-04",
+     "arquivo": ".github/workflows/tests_npu.yml",
+     "linha": 57
+    },
+    {
+     "check_id": "S-04",
+     "arquivo": ".github/workflows/tests_npu.yml",
+     "linha": 79
+    },
+    {
+     "check_id": "S-04",
+     "arquivo": ".github/workflows/tests.yml",
+     "linha": 70
+    },
+    {
+     "check_id": "S-04",
+     "arquivo": ".github/ISSUE_TEMPLATE/1-bug-report.yml",
+     "linha": 8
+    },
+    {
+     "check_id": "S-04",
+     "arquivo": ".github/workflows/tests_npu.yml",
+     "linha": 45
+    },
+    {
+     "check_id": "S-04",
+     "arquivo": ".github/workflows/docker.yml",
+     "linha": 41
+    },
+    {
+     "check_id": "S-04",
+     "arquivo": "src/llamafactory/model/patcher.py",
+     "linha": 406
+    },
+    {
+     "check_id": "S-04",
+     "arquivo": "src/llamafactory/webui/locales.py",
+     "linha": 37
+    },
+    {
+     "check_id": "S-04",
+     "arquivo": ".github/workflows/publish.yml",
+     "linha": 17
+    },
+    {
+     "check_id": "S-04",
+     "arquivo": "scripts/api_example/test_image.py",
+     "linha": 37
+    },
+    {
+     "check_id": "S-04",
+     "arquivo": "src/llamafactory/webui/locales.py",
+     "linha": 2074
+    }
+   ],
+   "achados_dinamicos": []
+  }
+ ],
+ "relatorios": {
+  "cobertura_catalogo": {
+   "presente": false
+  },
+  "cobertura_parcial": {
+   "P-07": "metade runtime nao executada: Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado.",
+   "P-09": "metade runtime nao executada: Trabalho A nao habilitado: nenhum `target` declarado em pse-config.yaml. Check previsto e nao habilitado."
+  }
+ },
+ "findings": [
+  {
+   "check_id": "E-07",
+   "pack": "ethics",
+   "severidade": "ALTO",
+   "titulo": "Codigo de ML sem Model Card versionado",
+   "descricao": "Ha treino/inferencia de modelo sem documentacao formal de proposito, limitacoes, dados de treino e metricas de fairness.",
+   "recomendacao": "Criar model-card.yaml (Mitchell et al., 2019) versionado com o codigo; validar no CI.",
+   "base_legal": "EbD-AI / LGPD Art. 20",
+   "arquivo": "scripts/bench_qwen.py",
+   "linha": 20,
+   "snippet": "import torch",
+   "trace": null,
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "check_id": "E-10",
+   "pack": "ethics",
+   "severidade": "MEDIO",
+   "titulo": "Decisao de 'run_sft' sem incerteza quantificada",
+   "descricao": "A funcao produz uma inferencia pontual e nao calcula nenhuma medida de confianca. Sem isso, decisao limitrofe e decisao folgada sao indistinguiveis — e e a limitrofe que precisa de revisao humana.",
+   "recomendacao": "Devolver probabilidade/intervalo junto do escore e rotear os casos de baixa confianca para analise.",
+   "base_legal": "robustez / EbD-AI",
+   "arquivo": "src/llamafactory/train/hyper_parallel/workflow.py",
+   "linha": 129,
+   "snippet": "def run_sft(...)",
+   "trace": null,
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "check_id": "E-10",
+   "pack": "ethics",
+   "severidade": "MEDIO",
+   "titulo": "Decisao de 'run_rm' sem incerteza quantificada",
+   "descricao": "A funcao produz uma inferencia pontual e nao calcula nenhuma medida de confianca. Sem isso, decisao limitrofe e decisao folgada sao indistinguiveis — e e a limitrofe que precisa de revisao humana.",
+   "recomendacao": "Devolver probabilidade/intervalo junto do escore e rotear os casos de baixa confianca para analise.",
+   "base_legal": "robustez / EbD-AI",
+   "arquivo": "src/llamafactory/train/rm/workflow.py",
+   "linha": 35,
+   "snippet": "def run_rm(...)",
+   "trace": null,
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "check_id": "E-10",
+   "pack": "ethics",
+   "severidade": "MEDIO",
+   "titulo": "Decisao de 'run_sft' sem incerteza quantificada",
+   "descricao": "A funcao produz uma inferencia pontual e nao calcula nenhuma medida de confianca. Sem isso, decisao limitrofe e decisao folgada sao indistinguiveis — e e a limitrofe que precisa de revisao humana.",
+   "recomendacao": "Devolver probabilidade/intervalo junto do escore e rotear os casos de baixa confianca para analise.",
+   "base_legal": "robustez / EbD-AI",
+   "arquivo": "src/llamafactory/train/sft/workflow.py",
+   "linha": 41,
+   "snippet": "def run_sft(...)",
+   "trace": null,
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "check_id": "P-04",
+   "pack": "privacy",
+   "severidade": "ALTO",
+   "titulo": "Catalogo de dados ausente",
+   "descricao": "Sem inventario (campo -> classe, dono, finalidade, base legal, retencao) nenhum outro controle de privacidade opera.",
+   "recomendacao": "Criar tests/qa/catalog.yaml conforme pse/schemas/catalog-1.0.json.",
+   "base_legal": "LGPD Art. 37",
+   "arquivo": "tests/qa/catalog.yaml",
+   "linha": 1,
+   "snippet": null,
+   "trace": null,
+   "domain": [
+    "data"
+   ]
+  },
+  {
+   "check_id": "P-07",
+   "pack": "privacy",
+   "severidade": "ALTO",
+   "titulo": "Modelo de consentimento ausente",
+   "descricao": "Nenhum modelo em tests/qa/consent-model.yaml. Sem finalidades declaradas nao ha como saber a que o titular consentiu — nem para registrar, nem para revogar.",
+   "recomendacao": "Criar tests/qa/consent-model.yaml conforme pse/schemas/consent-model-1.0.json.",
+   "base_legal": "LGPD Art. 7o-8o",
+   "arquivo": "tests/qa/consent-model.yaml",
+   "linha": 1,
+   "snippet": null,
+   "trace": null,
+   "domain": [
+    "api",
+    "data"
+   ]
+  },
+  {
+   "check_id": "P-16",
+   "pack": "privacy",
+   "severidade": "ALTO",
+   "titulo": "Dataset de treino 'mca_config' sem entrada de governanca",
+   "descricao": "'mca_config.json' alimenta um treino e nao tem entrada em `datasets` no catalogo. Dataset de treino costuma ser o unico artefato que ninguem inventaria: vive num bucket, foi montado uma vez e sobrevive a toda politica de retencao porque nao esta em tabela nenhuma. Um pedido de eliminacao nao alcanca o que o inventario desconhece.",
+   "recomendacao": "Declarar em `datasets` no catalogo: finalidade, retention_years, origem e base legal — o mesmo rigor que se cobra de uma tabela.",
+   "base_legal": "LGPD Art. 6o I e V + Art. 16 (finalidade, qualidade e eliminacao)",
+   "arquivo": "src/llamafactory/train/mca/workflow.py",
+   "linha": 97,
+   "snippet": "mca_config = json.load(open(os.path.join(model_args.model_name_or_path, \"mca_config.json\")))",
+   "trace": null,
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "check_id": "P-16",
+   "pack": "privacy",
+   "severidade": "ALTO",
+   "titulo": "Dataset de treino 'w' sem entrada de governanca",
+   "descricao": "'w' alimenta um treino e nao tem entrada em `datasets` no catalogo. Dataset de treino costuma ser o unico artefato que ninguem inventaria: vive num bucket, foi montado uma vez e sobrevive a toda politica de retencao porque nao esta em tabela nenhuma. Um pedido de eliminacao nao alcanca o que o inventario desconhece.",
+   "recomendacao": "Declarar em `datasets` no catalogo: finalidade, retention_years, origem e base legal — o mesmo rigor que se cobra de uma tabela.",
+   "base_legal": "LGPD Art. 6o I e V + Art. 16 (finalidade, qualidade e eliminacao)",
+   "arquivo": "src/llamafactory/train/megatron_bridge/workflow.py",
+   "linha": 84,
+   "snippet": "with open(done_file, \"w\", encoding=\"utf-8\") as f:",
+   "trace": null,
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "check_id": "P-16",
+   "pack": "privacy",
+   "severidade": "ALTO",
+   "titulo": "Dataset de treino 'utf-8' sem entrada de governanca",
+   "descricao": "'utf-8' alimenta um treino e nao tem entrada em `datasets` no catalogo. Dataset de treino costuma ser o unico artefato que ninguem inventaria: vive num bucket, foi montado uma vez e sobrevive a toda politica de retencao porque nao esta em tabela nenhuma. Um pedido de eliminacao nao alcanca o que o inventario desconhece.",
+   "recomendacao": "Declarar em `datasets` no catalogo: finalidade, retention_years, origem e base legal — o mesmo rigor que se cobra de uma tabela.",
+   "base_legal": "LGPD Art. 6o I e V + Art. 16 (finalidade, qualidade e eliminacao)",
+   "arquivo": "src/llamafactory/train/megatron_bridge/workflow.py",
+   "linha": 84,
+   "snippet": "with open(done_file, \"w\", encoding=\"utf-8\") as f:",
+   "trace": null,
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "check_id": "S-04",
+   "pack": "security",
+   "severidade": "ALTO",
+   "titulo": "Host externo nao registrado no manifesto: [REDACTED-HOST]",
+   "descricao": "Endpoint de terceiro usado no codigo sem entrada em .privacy/third-party-manifest.yml.",
+   "recomendacao": "Registrar a integracao com DPA, residencia de dados e base de transferencia — ou remover a chamada.",
+   "base_legal": "LGPD Art. 39",
+   "arquivo": "src/llamafactory/webui/locales.py",
+   "linha": 38,
+   "snippet": null,
+   "trace": null,
+   "domain": [
+    "backend"
+   ]
+  },
+  {
+   "check_id": "S-04",
+   "pack": "security",
+   "severidade": "ALTO",
+   "titulo": "Host externo nao registrado no manifesto: [REDACTED-HOST]",
+   "descricao": "Endpoint de terceiro usado no codigo sem entrada em .privacy/third-party-manifest.yml.",
+   "recomendacao": "Registrar a integracao com DPA, residencia de dados e base de transferencia — ou remover a chamada.",
+   "base_legal": "LGPD Art. 39",
+   "arquivo": ".github/workflows/tests_npu.yml",
+   "linha": 57,
+   "snippet": null,
+   "trace": null,
+   "domain": [
+    "backend"
+   ]
+  },
+  {
+   "check_id": "S-04",
+   "pack": "security",
+   "severidade": "ALTO",
+   "titulo": "Host externo nao registrado no manifesto: [REDACTED-HOST]",
+   "descricao": "Endpoint de terceiro usado no codigo sem entrada em .privacy/third-party-manifest.yml.",
+   "recomendacao": "Registrar a integracao com DPA, residencia de dados e base de transferencia — ou remover a chamada.",
+   "base_legal": "LGPD Art. 39",
+   "arquivo": ".github/workflows/tests_npu.yml",
+   "linha": 79,
+   "snippet": null,
+   "trace": null,
+   "domain": [
+    "backend"
+   ]
+  },
+  {
+   "check_id": "S-04",
+   "pack": "security",
+   "severidade": "ALTO",
+   "titulo": "Host externo nao registrado no manifesto: [REDACTED-HOST]",
+   "descricao": "Endpoint de terceiro usado no codigo sem entrada em .privacy/third-party-manifest.yml.",
+   "recomendacao": "Registrar a integracao com DPA, residencia de dados e base de transferencia — ou remover a chamada.",
+   "base_legal": "LGPD Art. 39",
+   "arquivo": ".github/workflows/tests.yml",
+   "linha": 70,
+   "snippet": null,
+   "trace": null,
+   "domain": [
+    "backend"
+   ]
+  },
+  {
+   "check_id": "S-04",
+   "pack": "security",
+   "severidade": "ALTO",
+   "titulo": "Host externo nao registrado no manifesto: [REDACTED-HOST]",
+   "descricao": "Endpoint de terceiro usado no codigo sem entrada em .privacy/third-party-manifest.yml.",
+   "recomendacao": "Registrar a integracao com DPA, residencia de dados e base de transferencia — ou remover a chamada.",
+   "base_legal": "LGPD Art. 39",
+   "arquivo": ".github/ISSUE_TEMPLATE/1-bug-report.yml",
+   "linha": 8,
+   "snippet": null,
+   "trace": null,
+   "domain": [
+    "backend"
+   ]
+  },
+  {
+   "check_id": "S-04",
+   "pack": "security",
+   "severidade": "ALTO",
+   "titulo": "Host externo nao registrado no manifesto: [REDACTED-HOST]",
+   "descricao": "Endpoint de terceiro usado no codigo sem entrada em .privacy/third-party-manifest.yml.",
+   "recomendacao": "Registrar a integracao com DPA, residencia de dados e base de transferencia — ou remover a chamada.",
+   "base_legal": "LGPD Art. 39",
+   "arquivo": ".github/workflows/tests_npu.yml",
+   "linha": 45,
+   "snippet": null,
+   "trace": null,
+   "domain": [
+    "backend"
+   ]
+  },
+  {
+   "check_id": "S-04",
+   "pack": "security",
+   "severidade": "ALTO",
+   "titulo": "Host externo nao registrado no manifesto: [REDACTED-HOST]",
+   "descricao": "Endpoint de terceiro usado no codigo sem entrada em .privacy/third-party-manifest.yml.",
+   "recomendacao": "Registrar a integracao com DPA, residencia de dados e base de transferencia — ou remover a chamada.",
+   "base_legal": "LGPD Art. 39",
+   "arquivo": ".github/workflows/docker.yml",
+   "linha": 41,
+   "snippet": null,
+   "trace": null,
+   "domain": [
+    "backend"
+   ]
+  },
+  {
+   "check_id": "S-04",
+   "pack": "security",
+   "severidade": "ALTO",
+   "titulo": "Host externo nao registrado no manifesto: [REDACTED-HOST]",
+   "descricao": "Endpoint de terceiro usado no codigo sem entrada em .privacy/third-party-manifest.yml.",
+   "recomendacao": "Registrar a integracao com DPA, residencia de dados e base de transferencia — ou remover a chamada.",
+   "base_legal": "LGPD Art. 39",
+   "arquivo": "src/llamafactory/model/patcher.py",
+   "linha": 406,
+   "snippet": null,
+   "trace": null,
+   "domain": [
+    "backend"
+   ]
+  },
+  {
+   "check_id": "S-04",
+   "pack": "security",
+   "severidade": "ALTO",
+   "titulo": "Host externo nao registrado no manifesto: [REDACTED-HOST]",
+   "descricao": "Endpoint de terceiro usado no codigo sem entrada em .privacy/third-party-manifest.yml.",
+   "recomendacao": "Registrar a integracao com DPA, residencia de dados e base de transferencia — ou remover a chamada.",
+   "base_legal": "LGPD Art. 39",
+   "arquivo": "src/llamafactory/webui/locales.py",
+   "linha": 37,
+   "snippet": null,
+   "trace": null,
+   "domain": [
+    "backend"
+   ]
+  },
+  {
+   "check_id": "S-04",
+   "pack": "security",
+   "severidade": "ALTO",
+   "titulo": "Host externo nao registrado no manifesto: [REDACTED-HOST]",
+   "descricao": "Endpoint de terceiro usado no codigo sem entrada em .privacy/third-party-manifest.yml.",
+   "recomendacao": "Registrar a integracao com DPA, residencia de dados e base de transferencia — ou remover a chamada.",
+   "base_legal": "LGPD Art. 39",
+   "arquivo": ".github/workflows/publish.yml",
+   "linha": 17,
+   "snippet": null,
+   "trace": null,
+   "domain": [
+    "backend"
+   ]
+  },
+  {
+   "check_id": "S-04",
+   "pack": "security",
+   "severidade": "ALTO",
+   "titulo": "Host externo nao registrado no manifesto: [REDACTED-HOST]",
+   "descricao": "Endpoint de terceiro usado no codigo sem entrada em .privacy/third-party-manifest.yml.",
+   "recomendacao": "Registrar a integracao com DPA, residencia de dados e base de transferencia — ou remover a chamada.",
+   "base_legal": "LGPD Art. 39",
+   "arquivo": "scripts/api_example/test_image.py",
+   "linha": 37,
+   "snippet": null,
+   "trace": null,
+   "domain": [
+    "backend"
+   ]
+  },
+  {
+   "check_id": "S-04",
+   "pack": "security",
+   "severidade": "ALTO",
+   "titulo": "Host externo nao registrado no manifesto: [REDACTED-HOST]",
+   "descricao": "Endpoint de terceiro usado no codigo sem entrada em .privacy/third-party-manifest.yml.",
+   "recomendacao": "Registrar a integracao com DPA, residencia de dados e base de transferencia — ou remover a chamada.",
+   "base_legal": "LGPD Art. 39",
+   "arquivo": "src/llamafactory/webui/locales.py",
+   "linha": 2074,
+   "snippet": null,
+   "trace": null,
+   "domain": [
+    "backend"
+   ]
+  }
+ ],
+ "duracao_s": 31.62,
+ "sanitizacao": {
+  "data_utc": "2026-08-31T22:36:48Z",
+  "metodo": "redacao assistida por script (scripts/13_sanitizar_alvo_c.py); mesmas regras do protocolo TPF das rodadas A/B: tipo de indício + check + arquivo:linha, sem literal",
+  "regras": [
+   "12 hosts externos apontados por S-04 mascarados como [REDACTED-HOST] (inclui titulos de findings)",
+   "URLs com esquema mascaradas como https://[REDACTED-HOST]",
+   "snippet de credencial (P-06) seria substituido integralmente (regra preventiva; sem P-06 com snippet neste alvo)",
+   "varredura global por literais proibidos aplicada ao JSON inteiro"
+  ],
+  "redacoes": [
+   {
+    "escopo": "varredura-estrutural",
+    "acao": "12 campo(s) com host/valor mascarado em todo o laudo"
+   }
+  ],
+  "nota": "o laudo BRUTO permanece em evidence/raw/ e nao deve ser divulgado"
+ }
+}
