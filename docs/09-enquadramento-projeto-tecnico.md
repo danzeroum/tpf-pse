@@ -1,20 +1,26 @@
 # 09 — Enquadramento do TPF como Projeto Técnico
 
-## Finalidade deste documento
+## Apresentação da proposta
 
-Este documento organiza o enquadramento acadêmico e profissional do Trabalho Prático Final (TPF) na modalidade **Projeto Técnico**, para a Pós-Graduação em Arquitetura e Engenharia de Software da FIA Online.
+Em um projeto de software, decisões e controles relevantes para privacidade, segurança e ética por design deixam rastros em muitos lugares: código-fonte, configurações, dependências, pipelines de integração e entrega contínuas, manifestos e documentação. Esses artefatos são parte do trabalho cotidiano de engenharia, mas nem sempre são fáceis de localizar, relacionar e revisar de forma consistente à medida que o repositório evolui.
 
-O corpus técnico já registrado neste repositório — relatórios, matrizes, evidências, scripts e manifesto de proveniência — permanece como evidência histórica de uma avaliação exploratória, estática e somente leitura. Ele não é apresentado como auditoria, certificação, parecer jurídico, comprovação de conformidade ou teste de produção.
+Essa dispersão cria um problema prático. Quando uma equipe precisa compreender o que já está documentado, quais controles possuem evidência técnica e quais pontos ainda dependem de investigação, a resposta pode ficar distribuída entre pessoas, diretórios, ferramentas e versões diferentes do projeto. O resultado não é necessariamente a ausência de controles; frequentemente é a ausência de um processo reproduzível para encontrar, registrar e discutir as evidências disponíveis.
 
-No TPF, esse corpus passa a exercer uma função específica: **demonstrar a viabilidade, os limites e os requisitos de implantação de um piloto da PSE Suite como prática de governança como código**.
+A PSE Suite é proposta neste TPF como uma ferramenta de apoio a esse processo. Por meio de checks versionados e de laudos rastreáveis, ela busca tornar mais sistemática a observação de artefatos selecionados de privacidade, segurança e ética por design. A ferramenta não substitui auditorias, avaliações jurídicas, testes dinâmicos, análise de arquitetura ou decisões humanas de governança. Seu papel é oferecer uma primeira camada técnica de observação e organizar insumos para revisão humana.
+
+O corpus já registrado neste repositório — relatórios, matrizes, evidências, scripts e manifesto de proveniência — preserva uma avaliação exploratória, estática e somente leitura. No contexto deste TPF, ele é utilizado como evidência de viabilidade e de limites para a implantação de um piloto controlado de governança como código.
 
 ## Problema
 
-Em equipes de desenvolvimento de software, evidências relacionadas a controles selecionados de privacidade, segurança e ética por design podem estar distribuídas entre código-fonte, arquivos de configuração, pipelines de integração e entrega contínuas, manifestos, documentação e artefatos de modelos de IA. A obtenção e a revisão dessas evidências dependem frequentemente de atividades manuais, pouco padronizadas e difíceis de reproduzir entre versões do repositório.
+Em equipes de desenvolvimento de software, evidências relacionadas a controles selecionados de privacidade, segurança e ética por design podem estar distribuídas entre código-fonte, arquivos de configuração, pipelines de CI/CD, manifestos, documentação e artefatos de modelos de IA. A identificação e a revisão dessas evidências tendem a depender de atividades manuais, pouco padronizadas e difíceis de reproduzir entre versões de um repositório.
 
-Como exemplo, um repositório pode conter configuração de acesso a dados, dependências, variáveis de ambiente, documentação de pipeline ou artefatos de IA em locais distintos. A ausência de um artefato esperado pela ferramenta pode significar uma lacuna de evidência no repositório, uma característica arquitetural do componente ou um controle existente em outro ambiente. Logo, ela não permite concluir, isoladamente, que há falha técnica, violação legal ou desconformidade organizacional.
+Por exemplo, um repositório pode conter variáveis de ambiente, dependências, configurações de acesso a dados, documentação de pipeline ou artefatos de IA em diretórios e formatos distintos. Sem uma prática estruturada de observação, cada revisão pode exigir uma nova busca, novas interpretações e trocas de contexto entre profissionais.
 
-A questão que orienta este Projeto Técnico é:
+A ausência de um artefato esperado em uma análise estática pode ter interpretações distintas: pode indicar uma lacuna de evidência no repositório, refletir uma característica arquitetural do componente ou significar que o controle está documentado e operado fora do escopo analisado.
+
+Por isso, a ausência de evidência, isoladamente, não permite concluir que exista falha técnica, violação legal ou desconformidade organizacional. Uma prática de governança como código precisa explicitar tanto as evidências encontradas quanto os limites do que conseguiu observar.
+
+Diante desse contexto, o problema a ser estudado é:
 
 > **Como estruturar e implantar, em um projeto-piloto de desenvolvimento de software, uma prática de governança como código capaz de gerar evidências técnicas rastreáveis sobre controles selecionados de privacidade, segurança e ética por design, respeitando os limites da análise estática de repositórios?**
 
@@ -22,12 +28,14 @@ A questão que orienta este Projeto Técnico é:
 
 ### Objetivo geral
 
-Propor um projeto técnico de implantação piloto da PSE Suite como mecanismo de governança como código em repositórios de software, definindo a arquitetura de adoção, critérios de priorização, evidências técnicas, limites de uso, indicadores e roadmap de evolução.
+Propor um projeto técnico de implantação piloto da PSE Suite como mecanismo de governança como código em repositórios de software, definindo arquitetura de adoção, critérios de priorização, evidências técnicas, limites de uso, indicadores e roadmap de evolução.
+
+Para alcançar esse objetivo, o trabalho se desdobra em sete etapas: da caracterização da ferramenta e do estudo de sua viabilidade técnica à elaboração de um plano-piloto operacionalizável.
 
 ### Objetivos específicos
 
 1. Caracterizar a PSE Suite, seus modos de execução, mecanismos de proveniência e tipos de evidência produzidos.
-2. Sistematizar as evidências de viabilidade e os limites identificados nas rodadas exploratórias sobre repositórios públicos com perfis arquiteturais distintos.
+2. Sistematizar as evidências de viabilidade e os limites identificados em avaliações exploratórias sobre repositórios públicos com perfis arquiteturais distintos.
 3. Mapear controles selecionados aos respectivos checks, evidências, limites de interpretação e recomendações de tratamento.
 4. Definir um processo de integração da PSE Suite ao ciclo de desenvolvimento e à integração contínua.
 5. Estabelecer critérios de triagem humana, priorização e tratamento dos achados.
@@ -36,15 +44,21 @@ Propor um projeto técnico de implantação piloto da PSE Suite como mecanismo d
 
 ## Justificativa
 
-A proposta é relevante para a prática profissional porque equipes de engenharia precisam tornar controles técnicos mais observáveis, repetíveis e rastreáveis no ciclo de desenvolvimento. Uma abordagem de governança como código pode apoiar a identificação de evidências em repositórios e a priorização de revisões humanas, desde que seus resultados sejam interpretados de acordo com o escopo, a versão da ferramenta e o contexto operacional.
+### Relevância profissional
 
-A originalidade da proposta está em combinar checks versionados, proveniência de execução, laudos reproduzíveis, classificação explícita de estados e limites de interpretação. O objetivo não é substituir auditorias, avaliações jurídicas, testes dinâmicos, análises de arquitetura ou decisões de governança. A PSE Suite é proposta como mecanismo complementar para tornar a coleta e a discussão de evidências mais sistemáticas.
+Equipes de engenharia precisam revisar continuamente artefatos que influenciam privacidade, segurança e governança de sistemas. Quando as evidências técnicas estão dispersas, parte desse trabalho depende de buscas manuais, conhecimento tácito e verificações que podem variar entre pessoas e versões do software. A governança como código é proposta como uma forma de apoiar a identificação estruturada dessas evidências e de tornar a discussão técnica mais rastreável e repetível.
 
-A viabilidade é sustentada pelo corpus técnico público deste repositório. Ele registra execuções estáticas em clones locais de repositórios públicos, commits congelados, matrizes de rastreabilidade, relatórios de validação e scripts de reprodução. Os resultados existentes oferecem subsídios para dimensionar aplicabilidade, ruído, falsos positivos, ausência de evidência, itens fora de alcance e necessidades de revisão humana antes de uma adoção em CI/CD.
+### Viabilidade técnica
+
+A proposta não parte apenas de uma hipótese conceitual. Este repositório reúne um corpus técnico público com relatórios, matrizes de rastreabilidade, scripts de reprodução, evidências de execução e manifesto de integridade. As avaliações exploratórias realizadas em clones locais de repositórios públicos e commits congelados permitem identificar aspectos de aplicabilidade, limites de cobertura, ruído, possíveis falsos positivos, ausência de evidência e dependência de contexto. Esses elementos reduzem incertezas para o planejamento de um piloto controlado.
+
+### Aderência ao Projeto Técnico
+
+A proposta é adequada à modalidade Projeto Técnico porque detalha uma intervenção aplicável: seleção de escopo, arquitetura operacional, integração ao ciclo de desenvolvimento, responsabilidades, critérios de triagem, indicadores, monitoramento, riscos e roadmap. O foco do trabalho não é afirmar que a PSE Suite resolve integralmente problemas de privacidade, segurança ou ética. O foco é propor uma forma realista, mensurável e progressiva de utilizá-la como apoio à governança técnica em um projeto-piloto.
 
 ## Delimitação
 
-O Projeto Técnico limita-se ao planejamento de um piloto controlado em repositório de software. A proposta não contempla execução em produção, acesso a sistemas externos, acesso a bancos de dados, uso de credenciais reais, análise de dados pessoais reais, garantia de conformidade regulatória ou certificação de controles.
+O Projeto Técnico limita-se ao planejamento de um piloto controlado em repositório de software. A proposta não contempla execução em produção, acesso a sistemas externos, bancos de dados, credenciais reais ou dados pessoais reais. Também não representa garantia de conformidade regulatória, certificação de controles ou substituição de processos especializados de segurança, privacidade, jurídico e gestão de riscos.
 
 A análise estática pode localizar indícios e evidências presentes nos artefatos versionados, mas não observa, por si só, comportamento em tempo de execução, configuração de infraestrutura externa, práticas operacionais não registradas no repositório, efetividade organizacional de controles ou contexto de uso pelo consumidor de uma biblioteca.
 
