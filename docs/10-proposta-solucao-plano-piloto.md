@@ -1,5 +1,7 @@
 # 10 — Proposta de Solução e Plano-Piloto de Implantação
 
+> **Nota metodológica sobre prazos:** a duração de doze semanas utilizada neste documento é uma **estimativa de planejamento proposta pelo autor do TPF**, definida para fins de detalhamento do cronograma da intervenção. Ela **não corresponde a nenhum prazo oficial fixado pela FIA** para a disciplina ou para a entrega do Trabalho Prático Final. O calendário real de desenvolvimento, submissão e entrega deve ser confirmado diretamente no Campus Digital e ajustado conforme a orientação recebida; as fases e atividades abaixo podem ser comprimidas, estendidas ou reorganizadas sem prejuízo da lógica do piloto.
+
 ## 1. Proposta de solução
 
 Propõe-se implantar a PSE Suite em um projeto-piloto controlado como prática de governança como código. A solução introduz verificações técnicas versionadas no ciclo de desenvolvimento para produzir laudos rastreáveis sobre evidências selecionadas de privacidade, segurança e ética por design.
@@ -57,7 +59,9 @@ Certificação, decisão jurídica, testes de invasão, testes dinâmicos de seg
 
 ## 4. Processo de implantação
 
-### Fase 1 — Preparação e baseline (semanas 1 e 2)
+As fases abaixo são descritas em semanas relativas ao início do piloto, apenas para fins de sequenciamento lógico. Elas devem ser recalibradas conforme o cronograma real definido junto à instituição e ao orientador.
+
+### Fase 1 — Preparação e baseline
 
 - Selecionar o repositório e obter autorização do responsável técnico.
 - Registrar escopo, branch padrão, stack, responsáveis e exclusões.
@@ -66,31 +70,33 @@ Certificação, decisão jurídica, testes de invasão, testes dinâmicos de seg
 - Classificar resultados iniciais em confirmado no escopo, possível falso positivo, ausência de evidência, dependente de contexto, não aplicável ou fora de alcance.
 - Definir critérios de severidade e responsáveis pela triagem.
 
-### Fase 2 — Integração observável (semanas 3 e 4)
+### Fase 2 — Integração observável
 
 - Implementar workflow de CI com execução em pull requests e na branch principal, em modo observação.
 - Publicar o laudo sanitizado como artefato do pipeline, sem persistê-lo automaticamente em branch pública.
 - Exibir no pull request apenas um resumo, sem expor trechos sensíveis.
 - Validar reprodutibilidade: mesmo commit, mesma versão e mesmo catálogo devem produzir resultados equivalentes, ressalvadas variações do ambiente.
 
-### Fase 3 — Calibração e triagem (semanas 5 a 8)
+### Fase 3 — Calibração e triagem
 
-- Revisar semanalmente os achados novos ou modificados.
+- Revisar periodicamente os achados novos ou modificados.
 - Documentar falsos positivos, exceções e limitações de escopo.
 - Ajustar regras, documentação de contexto ou configuração de execução quando cabível.
 - Não suprimir achados sem justificativa registrável.
 - Avaliar se algum controle exige evidência complementar fora do repositório.
 
-### Fase 4 — Consolidação e decisão (semanas 9 a 12)
+### Fase 4 — Consolidação e decisão
 
 - Consolidar métricas de rastreabilidade, operação, triagem e calibração.
 - Realizar revisão com engenharia, segurança e, quando aplicável, privacidade ou governança.
 - Definir quais checks permanecem em modo observação e quais podem ser candidatos futuros a alerta ou bloqueio, mediante nova aprovação.
 - Produzir relatório de encerramento do piloto, playbook operacional e decisão de continuidade (Go, No-Go ou Go condicionado).
 
-## 5. Cronograma
+## 5. Cronograma ilustrativo
 
-| Entrega | Semanas 1-2 | Semanas 3-4 | Semanas 5-8 | Semanas 9-12 |
+O cronograma abaixo utiliza doze semanas apenas como referência de planejamento. Ajuste as colunas conforme o prazo institucional confirmado.
+
+| Entrega | Início | Integração | Calibração | Encerramento |
 |---|---|---|---|---|
 | Escopo, papéis e baseline | X |  |  |  |
 | Proveniência e configuração da ferramenta | X | X |  |  |
@@ -142,8 +148,8 @@ O sucesso do piloto não é definido pelo maior número de achados, mas pela cap
 ## 9. Monitoramento e avaliação
 
 - A cada execução: verificar sucesso do workflow, disponibilidade do laudo e registro de proveniência.
-- Semanalmente: triar itens novos, atualizar severidade e registrar decisões.
-- Mensalmente: consolidar métricas, revisar exceções, avaliar ruído e decidir sobre ajustes de configuração.
+- Periodicamente: triar itens novos, atualizar severidade e registrar decisões.
+- Em ciclos de consolidação: revisar exceções, avaliar ruído e decidir sobre ajustes de configuração.
 - Ao final do piloto: comparar baseline e encerramento quanto a rastreabilidade, proporção de itens triados, distribuição de estados, tempo de resposta, principais lacunas e percepção qualitativa dos participantes sobre utilidade e custo operacional.
 
 ## 10. Riscos e mitigação
@@ -157,38 +163,39 @@ O sucesso do piloto não é definido pelo maior número de achados, mas pela cap
 | Deriva de versão | Resultados não comparáveis ao longo do tempo | Registrar versão, `catalog_hash` e mudanças de configuração |
 | Escopo excessivo | Piloto longo e indicadores pouco úteis | Limitar a um repositório e a controles selecionados |
 | Interpretação como certificação | Decisão indevida baseada apenas em automação | Declaração explícita de limites e revisão humana obrigatória |
+| Prazo institucional divergente da estimativa | Cronograma proposto não coincidir com o prazo real do TPF | Confirmar prazo com o orientador e recalibrar as fases descritas na seção 4 |
 
 ## 11. Recursos e viabilidade
 
 O piloto requer um repositório, executor de CI, acesso para publicar artefatos de build, ambiente compatível com a PSE Suite e disponibilidade limitada de pessoas para integração e triagem. A adoção inicial deve priorizar infraestrutura já disponível; custos adicionais devem ser avaliados apenas se retenção de laudos, observabilidade ou integração corporativa exigirem serviços específicos.
 
-Estimativa preliminar de esforço, a ser ajustada após a seleção do repositório:
+Estimativa preliminar de esforço, independente da duração total do piloto e a ser ajustada após a seleção do repositório:
 
 | Atividade | Esforço estimado |
 |---|---|
 | Seleção, escopo e baseline | 8 a 12 horas |
 | Integração inicial ao CI/CD | 12 a 20 horas |
 | Configuração, sanitização e documentação | 8 a 16 horas |
-| Triagem semanal durante o piloto | 2 a 4 horas por semana |
+| Triagem periódica durante o piloto | 2 a 4 horas por semana de execução |
 | Consolidação final e roadmap | 8 a 12 horas |
 
 ## 12. Sustentabilidade e roadmap
 
-### Curto prazo (até 3 meses)
+### Curto prazo
 
 - Consolidar a integração em CI/CD e o procedimento de triagem.
 - Padronizar templates de exceção e evidências de revisão.
 - Melhorar documentação de checks, severidades e limites.
 - Definir política de retenção e sanitização de laudos.
 
-### Médio prazo (6 a 12 meses)
+### Médio prazo
 
 - Ampliar cobertura para linguagens e formatos priorizados pelos repositórios consumidores.
 - Avaliar integração com inventário de dependências, quando houver maturidade e necessidade.
 - Criar visualização consolidada de tendências e indicadores.
 - Revisar regras a partir de falsos positivos e lacunas recorrentes observadas no piloto.
 
-### Longo prazo (acima de 12 meses)
+### Longo prazo
 
 - Avaliar mecanismo de extensões ou plugins para novos checks.
 - Considerar revisão técnica independente para regras críticas.
